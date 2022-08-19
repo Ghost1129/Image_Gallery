@@ -2,9 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import image from "../assets/gallery.png"
 import Navbar from "../components/navbar";
+import Link from "next/link";
 
+//Todo - Firebase hook
 
 export default function Home() {
+
   return (
     <div>
       <Head>
@@ -21,9 +24,12 @@ export default function Home() {
                       IMAGE <br/>
                         GALLERY.
                   </h1>
-                  <button className="bg-red-50 p-6 w-36 m-10 rounded-2xl hover:scale-110">
-                      UPLOAD
-                  </button>
+                  <Link href='/upload'>
+                      <button className="bg-red-50 p-6 w-36 m-10 rounded-2xl hover:scale-110">
+                          UPLOAD
+                      </button>
+                  </Link>
+
               </div>
               <div className="relative w-2/5 h-3/5 self-center ">
                   <div className="absolute w-96 h-96 bg-red-50 rounded-full"></div>
