@@ -6,7 +6,7 @@ import { getFirestore, collection, getDocs, serverTimestamp } from 'firebase/fir
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDAf4bgdObIWAMqarhA0yedV0FeWsCKjl8",
+    apiKey:process.env.API_KEY,
     authDomain: "photo-gallery-ae20f.firebaseapp.com",
     projectId: "photo-gallery-ae20f",
     storageBucket: "photo-gallery-ae20f.appspot.com",

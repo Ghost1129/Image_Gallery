@@ -4,9 +4,11 @@ import Image from "next/image";
 import Navbar from "../../components/navbar";
 
 import { AiOutlineLink } from 'react-icons/ai';
+import Modal from "../../components/modal";
 
 function Index() {
     const {docs} = useFirestore('images');
+    const [selectedImage, setSelectedImage] = React.useState(null);
     return (
         <>
             <Navbar/>
@@ -18,7 +20,7 @@ function Index() {
                         </div>
 
                         {docs && docs.map(doc => (
-                            <div key={doc.id} className="p-2 w-1/3 h-64 overflow-scroll group cursor-pointer ">
+                            <div key={doc.id} className="p-2 w-1/3 h-64 overflow-scroll group cursor-pointer " onClick={()=>setSelectedImage(doc.url)}>
                                 <div className="relative flex h-full">
                                     <Image src={doc.url} alt={doc.name} layout={'fill'} objectFit={'cover'} className="absolute w-full rounded-xl"/>
                                     <a className="hidden absolute  w-full h-full items-center justify-center group-hover:flex">
@@ -33,6 +35,8 @@ function Index() {
 
                 </div>
             </section>
+            {selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> }
+
 
 
         </>
